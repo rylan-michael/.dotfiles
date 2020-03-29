@@ -319,8 +319,12 @@ you should place your code here."
   ;; Other options are listed here: 12.4.0.5 Powerline separators.
   ;; https://www.spacemacs.org/doc/DOCUMENTATION.html
   (setq powerline-default-separator 'nil)
+  ;; Set org-mode related configuration.
+  ;; Set org-mode todo state transitions.
+    (setq org-todo-keywords
+          '((sequence "TODO(t!)" "DOINGNOW(d!)" "BLOCKED(b!)" "TODELEGATE(g!)"
+                      "DELEGATED(D!)" "DONE(F!)")))
   )
-
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (custom-set-variables
