@@ -134,11 +134,9 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("FiraCode Nerd Font" ;; "Source Code Pro"
-                               :size 13
-                               :weight normal
-                               :width normal
-                               :powerline-scale 1.1)
+   dotspacemacs-default-font '("FiraCode Nerd Font"
+                               :size 12
+                               :powrline-scale 1.1)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -261,7 +259,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers nil
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -313,7 +311,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (with-eval-after-load 'org
     ;; (require 'some-package)
-    ;; configure 'some-package and 'org-mode
+    ;; [[https://orgmode.org/org.html#A-Cleaner-Outline-View][16.4 A Cleaner Outline View]]
+    (org-indent-mode 'indent)
     )
   ;; Customize powerline separators. Another good one is 'slant.
   ;; Other options are listed here: 12.4.0.5 Powerline separators.
