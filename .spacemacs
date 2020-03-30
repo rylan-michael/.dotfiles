@@ -323,7 +323,7 @@ you should place your code here."
   ;; Set org-mode todo state transitions.
     (setq org-todo-keywords
           '((sequence "TODO(t!)" "DOINGNOW(d!)" "BLOCKED(b!)" "TODELEGATE(g!)"
-                      "DELEGATED(D!)" "DONE(F!)")))
+                      "|" "DELEGATED(D!)" "DONE(F!)")))
   )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
