@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 export DEFAULT_USER="$(whoami)"
 
 
-export OS_ICON="\ue711 " 
+#export OS_ICON="\ue711 " 
 
 POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
 POWERLEVEL9K_CONTEXT_DEFAULT_FOREGROUND='white'
@@ -114,17 +114,18 @@ POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
 POWERLEVEL9K_BATTERY_LOW_COLOR='red'
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=''
 #POWERLEVEL9K_BATTERY_STAGES=($'\u2581 ' $'\u2582 ' $'\u2583 ' $'\u2584 ' $'\u2585 ' $'\u2586 ' $'\u2587 ' $'\u2588 ')
-POWERLEVEL9K_BATTERY_ICON='\uf1e6 '
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_BATTERY_ICON='\uf1e6 '
+#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 #POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="❱ "
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{014}╭─%F{black}'
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF054%F{073}\uF054%F{109}\uF054%f "
+#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX='%F{014}╭─%F{black}'
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{014}\u2570%F{cyan}\uF054%F{073}\uF054%F{109}\uF054%f "
 POWERLEVEL9K_VCS_MODIFIED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='yellow'
 POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context battery dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time dir_writable ram)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context battery dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
 
 #POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
@@ -154,3 +155,25 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Use ssh-agent to manage and cache decrypted private keys. SSH keys need to be
+# reloaded every time a new ssh-agent is started. Every time
+# `eval "$(ssh-agent -s)"` is run a new ssh-agent process is created.
+# There could be 10+ ssh-agent processes running if you aren't careful.
+# Therefore, we check if there is an existing process running before starting a new
+# process.
+
+# Running ssh-agent in terminal starts a daemon process and outputs a few lines of
+# shell script. This info is output because child shell processes can set the
+# environment variables of the parent process. The first env variable
+# $SSH_AGENT_PID is used by `ssh-agent -k` which kills the agent using that PID.
+# The second env variable $SSH_AUTH_SOCK contains the path of the unix file socket
+# that the agent uses for communication with other processes. This is what
+# `ssh-add` uses to communicate with ssh-agent.
+
+if ! pgrep -x ssh-agent >/dev/null
+then
+  eval "$(ssh-agent -s)"
+  ssh-add ~/.ssh/id_rsa_pk &>/dev/null
+  ssh-add ~/.ssh/id_rsa_personal &>/dev/null
+fi
