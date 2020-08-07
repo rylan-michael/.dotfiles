@@ -173,11 +173,15 @@ export NVM_DIR="$HOME/.nvm"
 
 if ! pgrep -x ssh-agent >/dev/null
 then
-  eval "$(ssh-agent -s)" &>/dev/null
-  ssh-add ~/.ssh/id_rsa_pk &>/dev/null
-  ssh-add ~/.ssh/id_rsa_personal &>/dev/null
+  eval "$(ssh-agent -s)"
 fi
 
+# Temporary solution to the following problem:
+# When opening a new terminal and ssh-agent is already running
+# there are no identities added when calling `ssh-add -l` from
+# the new terminal.
+ssh-add ~/.ssh/id_rsa_pk &>/dev/null
+ssh-add ~/.ssh/id_rsa_personal &>/dev/null
 
 # Call VSCode from Zsh.
 # See https://consultwithgriff.com/how-to-run-visual-studio-code-from-mac-osx/
