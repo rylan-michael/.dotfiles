@@ -173,7 +173,21 @@ export NVM_DIR="$HOME/.nvm"
 
 if ! pgrep -x ssh-agent >/dev/null
 then
-  eval "$(ssh-agent -s)"
+  eval "$(ssh-agent -s)" &>/dev/null
   ssh-add ~/.ssh/id_rsa_pk &>/dev/null
   ssh-add ~/.ssh/id_rsa_personal &>/dev/null
 fi
+
+
+# Call VSCode from Zsh.
+# See https://consultwithgriff.com/how-to-run-visual-studio-code-from-mac-osx/
+function code {
+    if [[ $# = 0 ]]
+    then
+        open -a "Visual Studio Code"
+    else
+        local argPath="$1"
+        [[ $1 = /* ]] && argPath="$1" || argPath="$PWD/${1#./}"
+        open -a "Visual Studio Code" "$argPath"
+    fi
+}
