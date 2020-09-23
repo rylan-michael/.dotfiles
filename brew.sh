@@ -25,11 +25,7 @@ BREW_PREFIX=$(brew --prefix)
 
 # Install personal macOS tools.
 brew install ripgrep
-brew install emacs
 brew install php
-brew install go
-brew install erlang
-brew install elixir
 
 # Install other useful binaries.
 brew install lua
@@ -38,9 +34,10 @@ brew install tree
 # Install applications.
 brew cask install hammerspoon
 brew cask install rectangle
-brew cask install alacritty
+brew cask install iterm2
 brew cask install sublime-merge
 brew cask install font-firacode-nerd-font
 brew cask install bitwarden
+
 # Remove outdated versions from the cellar.
 brew cleanup
