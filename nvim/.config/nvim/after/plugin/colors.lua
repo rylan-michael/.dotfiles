@@ -1,3 +1,7 @@
+if true then
+	return
+end
+
 require('rose-pine').setup({
 	disable_background = true
 })
