@@ -34,5 +34,7 @@ STOW_FOLDERS="zsh,vim" ./install.sh
 Oh My Zsh can easily and visibly lag if the wrong configurations are made. Additionally, as the amount of plugins and theme changes increase, performance will degrade. As such, I want to pay close attention to the tradeoffs I'm making along the way. To do this, I'm informally benchmarking with [zsh-bench](https://github.com/romkatv/zsh-bench) and logging it in `zsh_benchmarks`.
 
 ```bash
+# Be sure to apply any changes made to .zshrc
+omz reload
 ~/zsh-bench/zsh-bench
 ```

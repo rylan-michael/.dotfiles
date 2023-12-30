@@ -1,5 +1,5 @@
 # .zshrc
-# Version: 2.0.0
+# Version: 3.0.0
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -73,7 +73,15 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-vi-mode)
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-vi-mode
+    macos
+    colored-man-pages
+    copypath
+    gcloud
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,3 +110,19 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Zsh named directories
+#hash -d sync=
+hash -d cloud="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+hash -d dev="$HOME/Developer"
+hash -d down="$HOME/Downloads"
+hash -d sec="$HOME/Documents/Projects Security"
+hash -d work="$HOME/Documents/Projects Concentrix"
+
+# Custom functions
+decode() {
+    echo "$1" | base64 -d; echo
+}
+
+# atuin shell plugin
+eval "$(atuin init zsh)"

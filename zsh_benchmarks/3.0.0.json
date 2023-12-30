@@ -1,0 +1,12 @@
+{
+    "creates_tty": 0,
+    "has_compsys": 1,
+    "has_syntax_highlighting": 0,
+    "has_autosuggestions": 1,
+    "has_git_prompt": 1,
+    "first_prompt_lag_ms": 455.986,
+    "first_command_lag_ms": 494.249,
+    "command_lag_ms": 131.180,
+    "input_lag_ms": 3.697,
+    "exit_time_ms": 258.321
+}
