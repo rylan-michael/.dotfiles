@@ -44,34 +44,29 @@ nvim
 # Install applications.
 brew install --cask \
 calibre \
-beekeeper-studio \
-bitwarden \
-blender \
 docker \
 firefox \
-font-firacode-nerd-font \
 google-chrome \
 hot \
 iterm2 \
 microsoft-edge \
 ngrok \
-notion \
 obsidian \
 oracle-jdk \
-plex-media-server \
 postman \
 rectangle \
-sequel-pro \
 spotify \
-steam \
 sublime-merge \
 sqlite \
 visual-studio-code \
 vlc \
 wireshark \
-zotero
+zotero \
+yt-dlp \
+atuin
 # obs \
 # virtualbox \
+
 
 # Remove outdated versions from the cellar.
 brew cleanup
