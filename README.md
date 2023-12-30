@@ -1,29 +1,30 @@
-# Personal Dotfiles for programs run on my Macbook
+# Dotfiles
 
-The goal is to organize all of my dotfiles in a version
-controlled folder and **symlinked** into place using a script.
+This repository contains my personal dotfiles for setting up and maintaining a consisten environment across different systems. The dotfiles are managed using GNU Stow, which makes it easy to install and update configurations.
 
-## Install Homebrew formulae and casks
+## Getting Started
 
-When setting up a new Mac, you may want to install some common Homebrew items.
+### Installation
 
+Clone the repository to your home directory.
+
+Navigate to the clone repository
+
+```bash
+cd ~/.dotfiles
 ```
-./brew.sh
+
+Run the `install.sh` script to setup the dotfiles.
+
+```bash
+sudo chmod +x ./install.sh
+./install.sh
 ```
 
-Some of the functionality of these dotfiles depends on formulae installed by `brew.sh`.
+### Customizing Installation
 
-## Configure NeoVim
+The `install.sh` script uses GNU Stow to symlink the dotfiles to your home directory. You can customize which configurations to install by setting the `STOW_FOLDERS` variable:
 
-Link the nvim config to a spot that nvim expects.
-
-`ln ~/dotfiles/nvim ~/.config/nvim`
-
-## Resources
-
-[dotfiles: Your unofficial guide to dotfiles on GitHub](https://dotfiles.github.io/tutorials)
-[Managing Your Dotfiles](https://www.anishathalye.com/2014/08/03/managing-your-dotfiles/)
-
-
-<!-- TODO(rylan): To update OhMyZSH, run `"$ZSH/tools/upgrade.sh"` then overwrite the oh-my-zsh folder in dotfiles dir. Then symlink? Should this even be tracked? -->
-
+```shell
+STOW_FOLDERS="zsh,vim" ./install.sh
+```
