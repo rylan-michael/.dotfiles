@@ -37,3 +37,9 @@ end
         - autoload/: A directory where autoloaded functions and scripts can be placed.
         - ftplugin/: A directory for filetype-specific settings.
         - after/: A directory for user-specific customizations that are loaded after the main configuration. Users can place their customizations here to override default settings or plugin configurations.
+
+## Plugins
+
+Plugins are managed by Lazy.vim which has a specific configuration system for plugins.
+
+`lazy.lua` loads statically-defined plugins and their configurations as lua modules. Each file can define a separate plugin and plugin configuration and lazy.vim will recognize and apply those changes made at runtime or at load. Learn more about it from [Structuring Your Plugins](https://github.com/folke/lazy.nvim?tab=readme-ov-file#-structuring-your-plugins).
