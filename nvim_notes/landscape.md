@@ -22,5 +22,10 @@ Lazy
 
 `:lazy` - open lazy window
 
+LuaLine
+
+[GitHub: nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+
+
 Configurations
 Themes
