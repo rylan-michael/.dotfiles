@@ -47,6 +47,10 @@ LuaLine
 
 [GitHub: nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) is a statusline for Neovim.
 
+Vim Surround
+
+[GitHub: tpope/vim-surround](https://github.com/tpope/vim-surround)
 
 Configurations
+
 Themes
