@@ -25,6 +25,11 @@ Has the concept of pickers, sorters, and previewers.
 - `L-fg`    live grep search
 - `L-fb`    search buffers
 - `L-fh`    search help tags
+- `:Telescope keymaps`  list normal-mode keymaps
+
+- `H/M/L`   Select High/Middle/Low
+- `C-x`     Go to file selection as a split
+- `C-v`     Go to file selection as a vsplit
 
 LSP Zero
 
