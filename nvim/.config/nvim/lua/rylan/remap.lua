@@ -1,5 +1,18 @@
 vim.g.mapleader = " "
+
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- save file
+vim.keymap.set({ 'i', 'x', 'n', 's' }, '<C-s>', '<Cmd>w<CR><Esc>', { desc = 'Save file'})
+
+-- quit all
+vim.keymap.set('n', '<Leader>qq', '<Cmd>qa<CR>', { desc = 'Quit all' })
+
+-- Resize window using <ctrl> arrow keys
+-- vim.keymap.set('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Increase window height' })
+-- vim.keymap.set('n', '<C-Down>', '<cmd>resize -2<cr>', { desc = 'Decrease window height' })
+-- vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Increase window width' })
+-- vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase window width' })
 
 -- Move around highlighted code.
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

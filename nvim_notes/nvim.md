@@ -1,5 +1,9 @@
 # NVIM
 
+## TODO
+
+- [ ] Document and integrate Quickfix into the workflow
+
 ## Docs Navigation
 
 `C-]`   - jump to the tag's location
@@ -78,15 +82,16 @@ When listing buffers, there will be Indicators
 
 ### Registers
 
-Registers allow you to copy, cut, and paste text. They can store text and commands. There are numbered registers (0-9). There are also named registers (a-zA-Z). Specify lowercase letters to replace their previous contents or as uppercase letters to append to their previous contents. The unnamed register ("") contains the most recent text you've yanked or deleted. It's often used for immediate pasting. The black hole register ("_) is used to discard text. If you delete or yank text and specify this register, it's deleted without storage to register. There is also the last search pattern register (`"/`) that contains the most recent search-pattern and is used for `n`. You can write to it with `:let` but you can't yank or delete into this register.
+Registers allow you to copy, cut, and paste text. They can store text and commands. There are numbered registers (0-9). There are also named registers (a-zA-Z). Specify lowercase letters to replace their previous contents or as uppercase letters to append to their previous contents. The unnamed register ("") contains the most recent text you've yanked or deleted. It's often used for immediate pasting. The black hole register ("_) is used to discard text. If you delete or yank text and specify this register, it's deleted without storage to register. There is also the last search pattern register (`"/`) that contains the most recent search-pattern and is used for `n`. You can write to it with `:let` but you can't yank or delete into this register. `"+` is the system clipboard register.
 
-`{register}p`   - paste from register
-`{register}ay`  - `"ay` deletes the selected text into register a.
-`:reg`          - lists all registers and their content.
+-   `:reg`  lists all registers and their content.
 
 Examples
 
-`"/p`   - paste from search pattern register.
+-   `"/p`   paste from search pattern register.
+-   `"ayy`  yank the current line into the `"a` register.
+-   `"+yy`  yank current line into clipboard register.
+-   `"+p`   paste from clipboard register.
 
 ## File Exploration
 
