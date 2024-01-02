@@ -13,7 +13,7 @@ return {
         -- Custom keybinding for searching through dotfiles
         -- Find more references: https://github.com/tjdevries/config_manager/blob/ee11710c4ad09e0b303e5030b37c86ad8674f8b2/xdg_config/nvim/lua/tj/telescope/init.lua
         vim.keymap.set('n', '<leader>fd', function()
-            require('telescope.builtin').git_files({
+            builtin.git_files({
                 shorten_path = true,
                 cwd = '~/.dotfiles',
                 prompt_title = 'Dotfiles Search',
