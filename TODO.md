@@ -6,6 +6,9 @@
 
 - [ ] Create and save tmux layouts like an editor/terminal split.
 
+- [ ] Document Hapoon key mappings.
+- [ ] Remap `:NvimTreeFocus` (open tree if closed, and focus), `:NvimTreeToggle`
+
 ## Notes
 
 - Generate markdown `pandoc input.md -o output.html`.
@@ -48,3 +51,9 @@
     - `g@` is the operator for calling a custom function defined by the vim-surround plugin.
 - View pending/unsaved changes in the vim buffer.
     
+2024-01-02
+
+- How do you find conflicting keymaps in neovim? I want to see all conflicts and not just when I know there's an issue.
+    - Doesn't seem like there's first-party support for that. However, if there's an issue you suspect run `:verbose map <key>`
+- How do you perform regex search through commit messages?
+    - `git log --grep="<pattern>"
