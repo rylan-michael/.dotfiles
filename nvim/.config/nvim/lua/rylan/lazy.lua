@@ -16,7 +16,5 @@ require('lazy').setup({
     { import = "rylan.plugins" },
     { 'tpope/vim-surround' },
     { 'nvim-treesitter/nvim-treesitter-context' },
-    { 'mbbill/undotree' },
-    { 'folke/trouble.nvim' },
   }
 })
