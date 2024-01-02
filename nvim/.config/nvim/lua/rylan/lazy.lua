@@ -15,5 +15,6 @@ require('lazy').setup({
   spec = {
     { import = "rylan.plugins" },
     { 'tpope/vim-surround' },
+    { 'nvim-treesitter/nvim-treesitter-context' },
   }
 })
