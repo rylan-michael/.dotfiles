@@ -4,8 +4,8 @@ return {
     config = function()
         require('lualine').setup({
             options = {
-                -- theme = 'catppuccin'
-                theme = 'vscode',
+                theme = 'catppuccin'
+                -- theme = 'vscode',
             }
         })
     end
