@@ -13,7 +13,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   spec = {
-    { import = "rylan.plugins" },
+    { import = "rylan.plugin-customizations" },
     { 'tpope/vim-surround' },
     { 'nvim-treesitter/nvim-treesitter-context' },
     {

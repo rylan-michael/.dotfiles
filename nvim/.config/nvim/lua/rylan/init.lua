@@ -1,3 +1,3 @@
-require('rylan.set')
-require('rylan.remap')
-require('rylan.lazy')
+require('rylan.settings')
+require('rylan.keymappings')
+require('rylan.plugins')
