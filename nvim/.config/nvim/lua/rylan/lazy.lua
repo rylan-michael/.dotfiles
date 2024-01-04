@@ -16,5 +16,18 @@ require('lazy').setup({
     { import = "rylan.plugins" },
     { 'tpope/vim-surround' },
     { 'nvim-treesitter/nvim-treesitter-context' },
+    {
+      -- Lazy loaded by Comment.nvim pre_hook
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      lazy = true,
+    },
+
+    -- Comments
+    {
+      'numToStr/Comment.nvim',
+      opts = {
+      },
+      lazy = false,
+    }
   }
 })
