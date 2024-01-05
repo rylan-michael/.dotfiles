@@ -51,4 +51,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end,
 })
 
-
+-- Show file path in top of each buffer
+-- Show available modifiers with `:h 'statusline'` and scroll down.
+vim.opt.winbar = '%=%m %f'
