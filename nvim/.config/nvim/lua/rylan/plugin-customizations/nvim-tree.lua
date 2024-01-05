@@ -6,6 +6,15 @@ return {
         'nvim-tree/nvim-web-devicons',
     },
     config = function()
-        require('nvim-tree').setup()
+        require('nvim-tree').setup({
+            filters = {
+                dotfiles = false,
+            },
+            actions = {
+                open_file = {
+                    quit_on_open = true,
+                },
+            },
+        })
     end,
 }
