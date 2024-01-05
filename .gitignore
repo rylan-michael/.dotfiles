@@ -1,3 +1,7 @@
+# Normally redundant but we want Telescope to respect .gitignore so it won't
+# include .git/ in the results.
+.git/
+
 ### macOS ###
 # General
 .DS_Store
