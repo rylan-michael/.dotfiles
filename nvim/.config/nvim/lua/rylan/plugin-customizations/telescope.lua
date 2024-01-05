@@ -1,5 +1,12 @@
 local M = {}
 
+function M.search_all_files()
+    require('telescope.builtin').find_files({
+        find_command = { 'rg', '--files' },
+        hidden = true
+    })
+end
+
 return {
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -13,11 +20,7 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Find help' })
 
         -- Custom find_files which shows hidden files
-        vim.keymap.set('n', '<leader>ff', function ()
-            builtin.find_files({
-                hidden = true,
-            })
-        end , { desc = 'Find files' })
+        vim.keymap.set('n', '<leader>ff', M.search_all_files, { desc = 'Find files' })
 
         -- Custom keybinding for searching through dotfiles
         -- Find more references: https://github.com/tjdevries/config_manager/blob/ee11710c4ad09e0b303e5030b37c86ad8674f8b2/xdg_config/nvim/lua/tj/telescope/init.lua
