@@ -1,33 +1,37 @@
-local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    'git',
-    'clone',
-    '--filter=blob:none',
-    'https://github.com/folke/lazy.nvim.git',
-    '--branch=stable', -- latest stable release
-    lazypath,
-  })
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
-  spec = {
-    { import = "rylan.plugin-customizations" },
-    { 'tpope/vim-surround' },
-    { 'nvim-treesitter/nvim-treesitter-context' },
-    {
-      -- Lazy loaded by Comment.nvim pre_hook
-      'JoosepAlviste/nvim-ts-context-commentstring',
-      lazy = true,
-    },
+require("lazy").setup({
+	spec = {
+		{ import = "rylan.plugin-customizations" },
 
-    -- Comments
-    {
-      'numToStr/Comment.nvim',
-      opts = {
-      },
-      lazy = false,
-    }
-  }
+		{ "tpope/vim-surround" },
+
+		-- Detech tabstop and shiftwidth automatically
+		{ "tpope/vim-sleuth" },
+
+		{ "nvim-treesitter/nvim-treesitter-context" },
+		{
+			-- Lazy loaded by Comment.nvim pre_hook
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			lazy = true,
+		},
+
+		-- Comments
+		{
+			"numToStr/Comment.nvim",
+			opts = {},
+			lazy = false,
+		},
+	},
 })

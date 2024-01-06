@@ -6,6 +6,10 @@ return {
         'williamboman/mason.nvim',
         'williamboman/mason-lspconfig.nvim', -- Closes gap between mason.nvim and lspconfig
 
+        -- Useful status updates for LSP
+        -- Note: `opts = {}` is the same as calling `require('fidget').setup({})
+        { "j-hui/fidget.nvim", opts = {}},
+
         -- Autocompletion
         'hrsh7th/nvim-cmp',
         'hrsh7th/cmp-nvim-lsp',
