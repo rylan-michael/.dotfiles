@@ -125,5 +125,7 @@ decode() {
     echo "$1" | base64 -d; echo
 }
 
+export PATH="$PATH:$HOME/go/bin"
+
 # atuin shell plugin
 eval "$(atuin init zsh)"
