@@ -35,10 +35,30 @@ return {
             lsp.default_keymaps({ buffer = bufnr })
         end)
 
-        require('mason').setup()
+        require('mason').setup({})
         require('mason-lspconfig').setup({
-            ensure_installed = {},
-            lsp.default_setup,
+            ensure_installed = {
+                "gopls",
+                "lua_ls"
+            },
+            -- If you need to configure a language server installed by Mason,
+            -- add a "handler function"
+            handlers = {
+                lsp.default_setup,
+                -- The name of the handler must be the same as the name of the
+                -- language server
+                lua_ls = function()
+                    require('lspconfig').lua_ls.setup({
+                        settings = {
+                            Lua = {
+                                diagnostics = {
+                                    globals = { 'vim' }
+                                }
+                            }
+                        }
+                    })
+                end,
+            },
         })
 
         lsp.preset('recommended')
@@ -105,15 +125,6 @@ return {
         -- Indiviual LSP server configurations, reference list from
         -- nvim-lspconfig's server_configuration.md documentation: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
         -- lua-language-server
-        require('lspconfig').lua_ls.setup({
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { 'vim' }
-                    }
-                }
-            }
-        })
 
         lsp.setup()
 

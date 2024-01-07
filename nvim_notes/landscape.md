@@ -1,11 +1,46 @@
 # NVIM Landscape
 
+`q:` opens the commands window
+Mason is a "package manager" for LSP, DAP, Linters, & Formatters. It's just a
+manager. You still need the relevant tools.
+
 Linting and formatting are tricky to have a catch-all solution for and are
 dependent on order or operations. For this reason, most don't have a catch-all
 solution in their nvim setup. On a case-by-case basis they could create an
 `autocmd` and search `*.ts` with `BufWrite` and then call prettier and eslint
 in a particular order. Additionally, it seems like linting is just a tricky
 feature to configure correctly so I may skip it.
+
+lsp-zero bundles all the "boilerplate code" needed to have `nvim-cmp` (an
+autocomplete plugin) and the LSP client working together.
+
+If there's a need to check whether LSP is working for the current file, run
+`:LspInfo`.
+
+- `K`:      displays hover info about the symbol under the cursor `:h vim.lsp.buf.hover()`
+- `gd`:     jumps to the symbol definition `:h vim.lsp.buf.definition()`
+- `gD`:     jumps to the symbol declaration `:h vim.lsp.buf.declaration()`
+- `gi`:     lists all symbol implementations `:h vim.lsp.buf.implementation()`
+- `go`:     jumps to definition of symbol type `:h vim.lsp.buf.type_definition()`
+- `gr`:     lists all symbol references in quickfix `:h vim.lsp.buf.references()`
+- `gs`:     display signature information `:h vim.lsp.buf.signature_help()`
+- `<F2>`:   renames all symbol refs `:h vim.lsp.buf.rename()` 
+- `<F3>`:   format code in buffer `:h vim.lsp.buf.format()`
+- `<F4>`:   selects a code action available `:h vim.lsp.buf.code_action()`
+- `gl`:     show diagnostics in floating window `:h vim.diagnostic.open_float()`
+- `[d/]d`:  prev/next diagnostic in buffer `:h vim.diagnostic.goto_prev()`
+
+`lspconfig` will search for a roow directory and start analyzing the project as
+a whole if applicable. Some language servers have "single file support" enabled,
+so if `lspconfig` can't determine the root directory then the current working
+directory becomes your root directory.
+
+If your language server doesn't attach to a file, make sure the file and the
+project folder meet the requirements of the language server which are documented
+per language server in the [list of language server](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md).
+Or inspect the config provided `LspZeroViewConfigSource lua_ls`.
+
+[GitHub: What to do when a language server doesn't start?](https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/what-to-do-when-lsp-doesnt-start.md)
 
 Formatting
 
