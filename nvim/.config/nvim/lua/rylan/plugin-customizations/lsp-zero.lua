@@ -9,6 +9,9 @@ return {
         -- Useful status updates for LSP
         -- Note: `opts = {}` is the same as calling `require('fidget').setup({})
         { "j-hui/fidget.nvim", opts = {}},
+        
+		-- Improve lua language server for nvim specific configuration and runtime
+		{ "folke/neodev.nvim" },
 
         -- Autocompletion
         'hrsh7th/nvim-cmp',

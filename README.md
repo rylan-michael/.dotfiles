@@ -4,6 +4,10 @@ This repository contains my personal dotfiles for setting up and maintaining a c
 
 ## Getting Started
 
+`:h lua-guide` for expert documentation about nvim's APIs and lua utilities.
+
+Additionally, nvim [kickstart](https://github.com/nvim-lua/kickstart.nvim) is an excellent resource.
+
 ### Installation
 
 Clone the repository to your home directory.

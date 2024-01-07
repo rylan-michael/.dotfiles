@@ -1,6 +1,21 @@
 # NVIM Landscape
 
+Linting and formatting are tricky to have a catch-all solution for and are
+dependent on order or operations. For this reason, most don't have a catch-all
+solution in their nvim setup. On a case-by-case basis they could create an
+`autocmd` and search `*.ts` with `BufWrite` and then call prettier and eslint
+in a particular order. Additionally, it seems like linting is just a tricky
+feature to configure correctly so I may skip it.
+
+Formatting
+
+Formatting is opt-in and handled by the formatter.vim plugin. The current
+formatting workflow is to add the file format configuration and then to run
+`:Format`when ready to format the file.
+
 Plugins
+
+WhichKey
 
 Harpoon
 
