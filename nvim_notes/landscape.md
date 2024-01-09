@@ -1,6 +1,31 @@
 # NVIM Landscape
 
+## NVIM General
+
 `q:` opens the commands window
+- `<C-w>_` maximize buffer window
+- `<C-w>=` equalize buffer windows
+
+### Replace/Substitute
+
+Prepend "#"
+
+1. Visually select lines
+2. Enter command `s/^/#/`
+
+Remove "#"
+
+1. Visually select lines
+2. Enter `s/^#/`
+
+Turn ``- `K`: ...`` to ``- `K` ...`` globally and while reviewing each sub
+
+1. Enter ``%s/`:/`/gc``
+    - `:%s` is the substitution command that operates on the entire file.
+    - `/gc` the `g` stands for "global", which replaces all occurrences in a line, not just the first one. `c` stands for "confirm", which prompts you before each substitution.
+
+---
+
 Mason is a "package manager" for LSP, DAP, Linters, & Formatters. It's just a
 manager. You still need the relevant tools.
 
@@ -17,18 +42,18 @@ autocomplete plugin) and the LSP client working together.
 If there's a need to check whether LSP is working for the current file, run
 `:LspInfo`.
 
-- `K`:      displays hover info about the symbol under the cursor `:h vim.lsp.buf.hover()`
-- `gd`:     jumps to the symbol definition `:h vim.lsp.buf.definition()`
-- `gD`:     jumps to the symbol declaration `:h vim.lsp.buf.declaration()`
-- `gi`:     lists all symbol implementations `:h vim.lsp.buf.implementation()`
-- `go`:     jumps to definition of symbol type `:h vim.lsp.buf.type_definition()`
-- `gr`:     lists all symbol references in quickfix `:h vim.lsp.buf.references()`
-- `gs`:     display signature information `:h vim.lsp.buf.signature_help()`
-- `<F2>`:   renames all symbol refs `:h vim.lsp.buf.rename()` 
-- `<F3>`:   format code in buffer `:h vim.lsp.buf.format()`
-- `<F4>`:   selects a code action available `:h vim.lsp.buf.code_action()`
-- `gl`:     show diagnostics in floating window `:h vim.diagnostic.open_float()`
-- `[d/]d`:  prev/next diagnostic in buffer `:h vim.diagnostic.goto_prev()`
+- `K`       displays hover info about the symbol under the cursor `:h vim.lsp.buf.hover()`
+- `gd`      jumps to the symbol definition `:h vim.lsp.buf.definition()`
+- `gD`      jumps to the symbol declaration `:h vim.lsp.buf.declaration()`
+- `gi`      lists all symbol implementations `:h vim.lsp.buf.implementation()`
+- `go`      jumps to definition of symbol type `:h vim.lsp.buf.type_definition()`
+- `gr`      lists all symbol references in quickfix `:h vim.lsp.buf.references()`
+- `gs`      display signature information `:h vim.lsp.buf.signature_help()`
+- `<F2>`    renames all symbol refs `:h vim.lsp.buf.rename()` 
+- `<F3>`    format code in buffer `:h vim.lsp.buf.format()`
+- `<F4>`    selects a code action available `:h vim.lsp.buf.code_action()`
+- `gl`      show diagnostics in floating window `:h vim.diagnostic.open_float()`
+- `[d/]d`   prev/next diagnostic in buffer `:h vim.diagnostic.goto_prev()`
 
 `lspconfig` will search for a roow directory and start analyzing the project as
 a whole if applicable. Some language servers have "single file support" enabled,
@@ -42,6 +67,13 @@ Or inspect the config provided `LspZeroViewConfigSource lua_ls`.
 
 [GitHub: What to do when a language server doesn't start?](https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/what-to-do-when-lsp-doesnt-start.md)
 
+AutoCompletion |lsp-zero-completion-keybindings|
+
+- `<C-Space>`   trigger completion window
+- `<C-y>`       confirm autocomplete
+- `<C-e>`       cancel autocomplete
+- `<C-p>/<C-n>` prev/next completion in menu
+
 Formatting
 
 Formatting is opt-in and handled by the formatter.vim plugin. The current
@@ -51,6 +83,8 @@ formatting workflow is to add the file format configuration and then to run
 Plugins
 
 WhichKey
+
+- `<Shift>-"` will preview buffers
 
 Harpoon
 

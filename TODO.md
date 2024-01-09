@@ -8,6 +8,15 @@
 
 - [ ] Document Hapoon key mappings.
 - [ ] Remap `:NvimTreeFocus` (open tree if closed, and focus), `:NvimTreeToggle`
+- [ ] Figure out how `<Leader>fg` functions with grep and rg and verify functionality. Any kind of project searching going on?
+
+- [ ] Understand `telescope.builtin.lsp_document_symbol` and `<C-l>` to show autompletion menu? Lists LSP document symbols in the current buffer.
+- [ ] Set wrap automatically for markdown files. (`:set wrap!`)
+- [ ] Figure difference between `git clone --bare` vs `git clone --mirror` and the doucmentation on hosting repo in multiple places?
+- [ ] Git worktree?
+- [ ] Document wrapping multiline code block in brackets (`{}`)
+- [ ] Finalize LSP keymaps because they won't set unless explicit. Things like `gr` and `ds` don't work. `gr` is also supposed to look for function references w/ fzf & telescope which sounds awesome but don't know whether that is an OOTB feature.
+
 
 ## Notes
 
@@ -28,6 +37,22 @@
 - I'm in the subfolder of a git repository and I want to know the relative path to the git root.
     - It isn't quite relative but we can run `git rev-parse --show-prefix`.
     - There's also `git rev-parse --show-toplevel` that will return the absolute path to the git root.
+
+- `apt` is intended for interactive use and subject to change. For scripts it's recommended to use `apt-get` or `dpkg`.
+- ZSH has the concept of named directories so instead of just `~` you could also create `~work ~dev ~down ~cloud ~sync` named directories.
+- `chsh` changes login shell which is a command-line interpreter (CLI) that is auto-started when the user logs in.
+- List available shells with `cat /etc/shells`.
+- `ls -l /bin`
+
+    `lrwxrwxrwx 1 root root 7 Dev 11 02:04 /bin -> /usr/bin`
+
+    - unified binaries directory is common for modern linux. Single dir for essential and non-essential user binaries.
+    - `l` signifies `/bin` is a symbolic link
+    - since `/bin` is linked to `/usr/bin`, any command run from `/bin` is actually being run from `/usr/bin`
+- `%` to jump to matching pairs
+- `f` to jump to character in the line and `;` to repeat
+- `:mks ! session.vim` `!` is the overwrite symbol. Then to load a session `vim -S session.vim`
+- `:vnew` `:new` buffers
 
 2024-01-01
 
@@ -56,4 +81,29 @@
 - How do you find conflicting keymaps in neovim? I want to see all conflicts and not just when I know there's an issue.
     - Doesn't seem like there's first-party support for that. However, if there's an issue you suspect run `:verbose map <key>`
 - How do you perform regex search through commit messages?
-    - `git log --grep="<pattern>"
+    - `git log --grep="<pattern>"`
+
+2024-01-04
+
+- What happens when you have a directory full of lua files that each only return a table and you import that module into a variable?
+    - First, a module is typically a single file and a package is a collection of modules.
+    - Second, a module is some code that creates and returns a table. "Everything that the module exports, such as functions or constants, it defines inside this table, which works as a kind of namespace."
+
+2024-01-09
+
+Coolest replace patterns. So there is a list of items
+
+- *aaa*: some description
+- *aa*: some description
+- *bb*: some description
+
+And what I want to do is transform each keymap from `*aa*:` to `` `aa` ``. So I use the replace pattern
+
+`` %s/\*\v(..|...)\*/`\1` ``
+
+- `%s` starts a find and replace on the entire file
+- `\v` enables very magic mode, which simplifies regex
+- `(..|...)` capture group with regex pattern that matches any 2-3 characters
+- `\1` is the replacement string. Uses the capture group.
+
+
