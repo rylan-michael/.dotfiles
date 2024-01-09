@@ -27,11 +27,13 @@ require("lazy").setup({
 			lazy = true,
 		},
 
-		-- Comments
+		-- "gc" to comment visual regions/lines
+		{ "numToStr/Comment.nvim", opts = {} },
+
 		{
-			"numToStr/Comment.nvim",
-			opts = {},
-			lazy = false,
+			-- Add indentation guides even on blank lines
+			"lukas-reineke/indent-blankline.nvim",
+			-- See :
 		},
 	},
 })
