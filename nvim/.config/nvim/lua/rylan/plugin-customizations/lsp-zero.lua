@@ -64,7 +64,8 @@ return {
 
 		lsp.preset("recommended")
 
-		-- Completion mappings
+		-- [[ Configure nvim-cmp ]]
+		-- See `:help cmp` - Completion mappings
 		local cmp = require("cmp")
 		local cmp_action = require("lsp-zero").cmp_action()
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
