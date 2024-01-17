@@ -106,4 +106,11 @@ And what I want to do is transform each keymap from `*aa*:` to `` `aa` ``. So I 
 - `(..|...)` capture group with regex pattern that matches any 2-3 characters
 - `\1` is the replacement string. Uses the capture group.
 
+2024-01-10
 
+- I want to see a list (blame?) of changes made in a file with Git
+
+2024-10-11
+
+- I'm using 1password SSH agent to authenticate with my work's gitlab instance but I'm getting an error stating "Too many authentication failures". Why does this happen, what's this 6 key limit, how does ssh-agent work, and how can you address this? What are my misconceptions because I would just assume 1password would match the public key and try to authenticate. Why does the ssh-agent take a dump approach to this?
+    - https://developer.1password.com/docs/ssh/agent/advanced/#ssh-server-six-key-limit
