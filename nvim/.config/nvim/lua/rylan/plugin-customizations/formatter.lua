@@ -12,7 +12,9 @@ return {
 					-- the "lua" filetype.
 					require("formatter.filetypes.lua").stylua,
 				},
-
+				typescript = {
+					require("formatter.filetypes.typescript").prettier,
+				},
 				-- Use the special "*" filetype for defining formatter
 				-- configurations on any filetype
 				["*"] = {
