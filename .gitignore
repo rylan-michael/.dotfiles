@@ -5,3 +5,6 @@
 ### macOS ###
 # General
 .DS_Store
+
+# Ignore Tmux Plugin Manager packages/artifacts that can be installed/uninstalled.
+tmux/.tmux/plugins/

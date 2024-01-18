@@ -17,6 +17,8 @@
 - [ ] Document wrapping multiline code block in brackets (`{}`)
 - [ ] Finalize LSP keymaps because they won't set unless explicit. Things like `gr` and `ds` don't work. `gr` is also supposed to look for function references w/ fzf & telescope which sounds awesome but don't know whether that is an OOTB feature.
 
+- [ ] Handle `.DS_Store` causing conflicts with GNU Stow
+- [ ] Ensure Gnu Stow can handle tpm and it installing plugins and deleting configuration changes. Update the notes so that we know we probably need to reinstall plugins every time Gnu Stow is rerun since it delete configuration files. It might also be possible to install the plugins in the dotfile folder and the installed plugin artifacts to the dotfiles.
 
 ## Notes
 
@@ -114,3 +116,7 @@ And what I want to do is transform each keymap from `*aa*:` to `` `aa` ``. So I 
 
 - I'm using 1password SSH agent to authenticate with my work's gitlab instance but I'm getting an error stating "Too many authentication failures". Why does this happen, what's this 6 key limit, how does ssh-agent work, and how can you address this? What are my misconceptions because I would just assume 1password would match the public key and try to authenticate. Why does the ssh-agent take a dump approach to this?
     - https://developer.1password.com/docs/ssh/agent/advanced/#ssh-server-six-key-limit
+
+2024-01-17
+
+- Is there a key or input that could be provided that would include ignored files set in configuration? There are times when I want to search through node module implementations that are ignored by default and I want to temporarily ignore the configuration. Maybe I just need to build those queries individually through the command line?
