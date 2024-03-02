@@ -7,6 +7,9 @@ return {
 				go = {
 					require("formatter.filetypes.go").gofmt,
 				},
+				json = {
+					require("formatter.filetypes.json").prettier,
+				},
 				lua = {
 					-- "formatter.filetypes.lua" defines default configurations for
 					-- the "lua" filetype.
@@ -14,6 +17,9 @@ return {
 				},
 				typescript = {
 					require("formatter.filetypes.typescript").prettier,
+				},
+				yaml = {
+					require("formatter.filetypes.yaml").prettier,
 				},
 				-- Use the special "*" filetype for defining formatter
 				-- configurations on any filetype
