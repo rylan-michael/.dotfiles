@@ -1,13 +1,15 @@
 -- Bind the enable function to a hotkey, for example: ctrl + alt + cmd + E
 hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "E", function()
+	hs.execute("networksetup -setwebproxystate 'Wi-Fi' on", true)
 	hs.execute("networksetup -setsecurewebproxystate 'Wi-Fi' on", true)
-	hs.alert.show("HTTPS Proxy Enabled")
+	hs.alert.show("HTTP & HTTPS Proxies Enabled")
 end)
 
 -- Bind the disable function to a hotkey, for example: ctrl + alt + cmd + D
 hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "D", function()
+	hs.execute("networksetup -setwebproxystate 'Wi-Fi' off", true)
 	hs.execute("networksetup -setsecurewebproxystate 'Wi-Fi' off", true)
-	hs.alert.show("HTTPS Proxy Disabled")
+	hs.alert.show("HTTP & HTTPS Proxies Disabled")
 end)
 
 -- Script launcher menu
